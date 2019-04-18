@@ -1,7 +1,7 @@
 const move = require("./move");
 const game = require("./game");
 
-module.exports = app => {
-    game(app);
-    move(app);
+module.exports = (app, games) => {
+    game(app, games);
+    move(app, games);
 }
