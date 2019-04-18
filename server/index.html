@@ -155,7 +155,7 @@
     var game_id;
 
     $('#new-game').click(function () {
-        $.post("http://localhost:8000/game")
+        $.post("game")
             .done(function (resp) {
                 if (resp.Error) {
                     alert(resp.Error);
@@ -172,7 +172,7 @@
             subgame: $(this).parent().data('subgame'),
             cell: $(this).data('cell')
         };
-        $.post("http://localhost:8000/move", json)
+        $.post("move", json)
             .done(function (resp) {
                 if (resp.Error) {
                     alert(resp.Error);

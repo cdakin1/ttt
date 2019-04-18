@@ -10,8 +10,8 @@ module.exports = function (app, games) {
         const gameId = req.query ? req.query.id : null;
 
         if (gameId) {
-            if (gameId && games[id]) {
-                res.end(JSON.stringify(games[id]));
+            if (gameId && games[gameId]) {
+                res.end(JSON.stringify(games[gameId]));
             } else {
                 res.end(JSON.stringify({ Error: "Invalid id" }));
             }
@@ -24,7 +24,17 @@ module.exports = function (app, games) {
     const createGame = () => {
         const id = games.length;
         const newGame = {
-            board: new Array(9).fill(new Array(9).fill(""), ""),
+            board: [
+                ["", "", "", "", "", "", "", "", ""],
+                ["", "", "", "", "", "", "", "", ""],
+                ["", "", "", "", "", "", "", "", ""],
+                ["", "", "", "", "", "", "", "", ""],
+                ["", "", "", "", "", "", "", "", ""],
+                ["", "", "", "", "", "", "", "", ""],
+                ["", "", "", "", "", "", "", "", ""],
+                ["", "", "", "", "", "", "", "", ""],
+                ["", "", "", "", "", "", "", "", ""],
+            ],
             id,
             winner: "",
             turn: "X",
